@@ -1,0 +1,45 @@
+介绍config.txt文件的常用的视频参数设置
+           
+1.hdmi_safe参数用于设置"安全模式"以尝试使用HDMI最大兼容性来启动输出,如果设置为"1"使用该功能,设置为"0"则禁用该功能.
+   例如如下几个参数的设置:
+		
+		hdmi_force_hotplug=1
+		config_hdmi_boost=4
+		hdmi_group=2
+		hdmi_mode=4
+		disable_overscan=0
+		
+		
+2.hdmi_force_hotplug 参数用于检查HDMI显示器是否被接入,当检查到c显示器被接入的时候就立刻使用HDMI信号输出,如果没有检查到显示器也保持HDMI信号输出,通常设置该参数为"1".
+
+
+3.HDMI_drive 参数用于设置是否使用HDMI接口输出声音信息,设置为"1"的时候不输出声音,设置为"2"的时候输出声音.
+
+
+4.config_hdmi_boost 参数用于设置HDMI接口输出信号的强度,取值为0--7,信号强度依次增大,默认为7,如果出现了HDMI干扰问题可以设置为4.
+
+
+5.disable_overscan 参数用于设置是否允许显示器进行超出扫描,当设置为"1" 的时候禁止超出扫描,当设置为"0"允许超出扫描.超出扫描用于设置显示器在显示过程中不显示(跳过显示的像素值),有overscan_left(左侧)  overscan_right(右侧)  overscan_top(顶部)  oversacn_bottom(底部)这四个参数,如果都设置为"0" 则表示不跳过显示.
+
+
+6.hdmi_group和hdmi_mode 参数用于联合设置树莓派的输出分辨率,第一个参数用于设置HDMI的类型，有0，1，2三个可能选择值,分别对应EDIE报告首选组,CEA和DMT,其中几个常用到的分辨率设置为:
+		
+		hdmi_group=1	hdmi_mode=4     对应720P@60Hz
+		hdmi_group=1	hdmi_mode=16    对应1080P@60Hz
+		hdmi_group=1	hdmi_mode=4     对应640X480@60Hz
+		hdmi_group=1	hdmi_mode=4     对应800X600@60Hz
+		hdmi_group=1	hdmi_mode=4     对应1024X768@60Hz
+		hdmi_group=1	hdmi_mode=4     对应1280X800@60Hz
+		hdmi_group=1	hdmi_mode=4     对应1440X900@60Hz
+		hdmi_group=1	hdmi_mode=4     对应1600X1200@60Hz
+		hdmi_group=1	hdmi_mode=4     对应1366X768@60Hz
+		hdmi_group=1	hdmi_mode=4     对应1920X1080@60Hz
+		
+多种分辨率的组合可以在如下的网站中查询:http://elinux.org/RPi_config.txt
+
+7.display_rotate 参数用于设置屏幕的顺时针旋转角度,有0(正常),1(90°),2(180°),3(270°),0x10000(水平翻转),0x20000(垂直翻转)6个选项.
+
+
+8.sdtv_mode 参数用于设置复合信号输出接口(RCA)的视频制式,有0(NTSC),1(日本版NTSC),2(PAL)和3(巴西版PAL)四个选项.
+
+          
