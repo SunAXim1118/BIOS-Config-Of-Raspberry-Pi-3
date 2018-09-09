@@ -1,0 +1,33 @@
+用户可以在windows上使用UltraEdit等工具对config.txt进行修改,也可以在Raspbian系统的命令行下使用nano或者Vim工具对boot/config.txt文件进行修改.
+  config.txt文件虽然内容很多,但是其中相当多参数都不重要,在通过raspi-config工具完成超频设置之后,只需要根据实际的显示器分辨率设置hdmi_group和hdmi_mode参数的值即可,以下是一个可用的config.txt参数配置,在其中加入了中文说明:
+		
+		
+		#允许超出扫描
+		disable_overscan=0
+		#设置超出扫描的像素,先设为0,可根据实际情况调节
+		overscan_left=0
+		overscan_right=0
+		overscan_left=0
+		overscan_bottom=0
+		#设置帧缓冲buff,分别为显示器宽度和高度减去超出扫描像素,,当前显示器分辨率为1366X768
+		#framebuffer_width=1280
+		#framebuffer_height=720
+		hdmi_force_hotplug=1
+		#设置分辨率为1366X768
+		hdmi_group=2
+		hdmi_mode=81
+		#使用有声音输出的DMT格式
+		hdmi_drive=2
+		#设置HDMI的信强度为4
+		config_hdmi_boost=4
+		#设置了RCA的信号格式
+		sdtv_mode=2
+		#处理器的工作频率为1GHz
+		arm_freq=1000
+		#设置处理器和内存的各个参数
+		core_freq=500
+		sdram_freq=600
+		over_voltage=6
+		gpu_men=64
+完成config.txt的内容修改后再将SD卡插入树莓派中,连接相应的硬件设备,插上电源,即可看到对应桌面的输出.
+
